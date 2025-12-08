@@ -1,65 +1,143 @@
-import Image from "next/image";
+import React from "react";
+import Link from "next/link";
 
-export default function Home() {
+const Page = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div>
+
+      {/* HERO SECTION */}
+      <section className="px-6 py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+          
+          <div className="flex-1">
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+              Learn Tech in a Simple & Smart Way 🚀
+            </h1>
+            <p className="text-lg opacity-90 mb-6">
+              Easy tutorials, guides, tips & the latest tech updates — all in one place.
+            </p>
+            <Link 
+              href="/blog"
+              className="bg-white text-blue-700 px-6 py-3 rounded-xl font-semibold shadow hover:shadow-lg transition"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              Explore Blogs →
+            </Link>
+          </div>
+
+          <div className="flex-1">
+            <img 
+              src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=1200"
+              alt="Tech"
+              className="rounded-2xl shadow-xl"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+
         </div>
-      </main>
+      </section>
+
+
+      {/* LATEST BLOG POSTS */}
+      <section className="py-16 px-6 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8">Latest Posts</h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+            {/* CARD */}
+            {[
+              {
+                title: "How to Increase Phone Speed",
+                desc: "Quick & simple tips to make your smartphone faster...",
+                img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800"
+              },
+              {
+                title: "Best Apps for Students 2025",
+                desc: "The must-have apps every student should use this year...",
+                img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800"
+              },
+              {
+                title: "Top 5 Chrome Extensions",
+                desc: "Boost productivity with these powerful extensions...",
+                img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800"
+              },
+            ].map((post, i) => (
+              <div 
+                key={i}
+                className="bg-white shadow rounded-xl overflow-hidden hover:shadow-xl transition"
+              >
+                <img 
+                  src={post.img}
+                  alt="Post"
+                  className="w-full h-44 object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="font-semibold text-lg mb-2">{post.title}</h3>
+                  <p className="text-gray-600 text-sm mb-3">{post.desc}</p>
+                  <Link href="/blog" className="text-blue-600 font-medium inline-block">
+                    Read More →
+                  </Link>
+                </div>
+              </div>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+
+      {/* FEATURES SECTION */}
+      <section className="py-16 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-12">What We Offer</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            {[
+              {
+                title: "Tech Guides",
+                desc: "Simple tutorials to help you understand technology better.",
+              },
+              {
+                title: "Latest Trends",
+                desc: "Stay updated with what's new in tech around the world.",
+              },
+              {
+                title: "Tech Solutions",
+                desc: "Troubleshooting tips, app guides & quick digital fixes.",
+              },
+            ].map((item, i) => (
+              <div 
+                key={i}
+                className="p-8 bg-white rounded-xl shadow hover:shadow-xl transition border-t-4 border-blue-600"
+              >
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-600">{item.desc}</p>
+              </div>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+
+      {/* CALL TO ACTION */}
+      <section className="py-16 px-6 bg-pink-300 text-black">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">Want to Learn Something New?</h2>
+          <p className="text-lg opacity-90 mb-6">
+            Explore our detailed tutorials, app guides, and tech tips.
+          </p>
+          <Link
+            href="/blog"
+            className="bg-white text-blue-700 px-6 py-3 rounded-xl font-semibold shadow hover:shadow-lg transition"
+          >
+            Start Reading →
+          </Link>
+        </div>
+      </section>
+
     </div>
   );
-}
+};
+
+export default Page;
