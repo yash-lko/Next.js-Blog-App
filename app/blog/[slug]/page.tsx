@@ -1,9 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 
+
+export const metadata = {
+  icons: {
+    icon: "../images/favicon.ico",
+  },
+};
+
 export default async function ProductDetails({ params }: { params: Promise<{ slug: string }> }) {
-
-
   const blogSlug = (await params).slug;
 
   try {
