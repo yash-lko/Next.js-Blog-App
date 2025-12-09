@@ -7,7 +7,6 @@ export default function CTASection() {
         className="max-w-4xl mx-auto text-center p-12 rounded-3xl shadow-xl
                    bg-white relative overflow-hidden"
       >
-        {/* Gradient Top Border */}
         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 to-purple-600"></div>
 
         <h2 className="text-4xl font-bold mb-4 text-gray-900">

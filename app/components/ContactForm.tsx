@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 export const metadata = {
-  title: "Contact Us | My Website",
+  title: "Contact Us | My Blog",
   description: "Get in touch with us through our contact form.",
   icons: {
     icon: "/favicon.ico",
@@ -37,9 +37,6 @@ const ContactForm = () => {
   return (
     <div className="max-w-3xl mx-auto px-6 py-10">
       <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
-
-
-      {/* Contact Form */}
       <div className="bg-white shadow-md rounded-lg p-6 border">
         <h2 className="text-xl font-semibold mb-4">Send Us a Message</h2>
 
@@ -84,16 +81,12 @@ const ContactForm = () => {
 
           <button
             type="submit"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
+            className="cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Send Message
           </button>
         </form>
       </div>
-
-      <p className="text-gray-700 mt-10">
-        Thank you for reaching out. We’ll get back to you as soon as possible!
-      </p>
     </div>
   )
 }

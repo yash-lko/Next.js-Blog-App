@@ -2,22 +2,13 @@ import React, { Suspense } from "react";
 import Loading from "../components/Loading";
 import Image from "next/image";
 import Link from "next/link";
-
-export interface BlogPosts {
-  id: number;
-  title: string;
-  description: string;
-  cover_image: string | null;
-  slug: string;
-  user: {
-    username: string;
-  };
-}
+import { BlogPosts } from "../types/blogs";
 
 const page = async () => {
   const res = await fetch("https://dev.to/api/articles");
-  const blogs: BlogPosts[] = await res.json();
+  const blogsAll: BlogPosts[] = await res.json();
 
+  const blogs= blogsAll.slice(5,20)
   return (
     <div className="min-h-screen bg-gray-50 px-6 py-16">
       <div className="text-center mb-16">
@@ -53,7 +44,7 @@ const page = async () => {
               </p>
 
               <Link
-                href={`/blog/${blog.id}`}
+                href={`/blog/${blog.slug}`}
                 className="text-[#8433fb] font-medium mt-4 inline-block hover:underline"
               >
                 Read More →

@@ -35,7 +35,6 @@ export default function WhatWeOffer() {
                          hover:shadow-xl hover:-translate-y-1
                          transition-all duration-300 border border-gray-100"
             >
-              {/* Icon wrapper */}
               <div
                 className="w-16 h-16 mx-auto mb-6 rounded-full 
                            bg-gradient-to-r from-blue-600 to-purple-600
