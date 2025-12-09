@@ -1,6 +1,6 @@
 
+![Uploading screencapture-localhost-3000-2025-12-09-17_01_06.png…]()
 
-<img width="1418" height="687" alt="image" src="https://github.com/user-attachments/assets/83521afc-935d-49f9-ac3a-0fa33870df43" />
 
 
 
