@@ -1,43 +1,160 @@
+# 📘 Next.js Blog App (DEV.to API)
 
-<img width="1422" height="678" alt="image" src="https://github.com/user-attachments/assets/68318c86-b5eb-42e9-a3b4-2b44249d2015" />
+A simple, fast, and production-ready **Next.js (App Router)** blog application that fetches articles from the **DEV.to public API**, lists them on a blog listing page, and displays full article details using SEO-friendly **dynamic slug** routes.
 
+This repo demonstrates server-side fetching, dynamic routing, and rendering article HTML safely with `dangerouslySetInnerHTML`.
 
+---
 
+## 🚀 Features
 
+* Fetch blog posts from the **DEV.to API** (`https://dev.to/api/articles`).
+* Blog listing page with thumbnails, titles and short descriptions.
+* Dynamic blog detail pages using `app/blog/[slug]/page.tsx`.
+* Optimized images via Next.js `next/image`.
+* Server-side fetching for fast, SEO-friendly pages.
+* Graceful error handling for missing or invalid slugs.
+* Responsive layout built with Tailwind CSS (or your CSS of choice).
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+---
 
-## Getting Started
+## 🧩 Tech Stack
 
-First, run the development server:
+* **Next.js 14 (App Router)**
+* **React**
+* **TypeScript**
+* **Tailwind CSS**
+* **DEV.to REST API**
+* **next/image** for image optimization
+
+---
+
+## 📁 Project Structure
+
+```
+app/
+ ├─ blog/
+ │   ├─ page.tsx        -> Blog listing (fetches articles)
+ │   └─ [slug]/
+ │        └─ page.tsx   -> Blog details (match by slug)
+ ├─ layout.tsx
+ └─ globals.css
+public/
+ └─ placeholder.png     -> Fallback image
+package.json
+README.md
+```
+
+---
+
+## ⚙️ Installation & Local Development
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+pnpm install
+# or
+yarn
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
 pnpm dev
 # or
-bun dev
+yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔎 How Routing & Slug Matching Works
 
-## Learn More
+1. The blog listing fetches articles from the DEV.to API:
 
-To learn more about Next.js, take a look at the following resources:
+```ts
+const res = await fetch('https://dev.to/api/articles');
+const data = await res.json();
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Each article has a `slug` field. Links are generated like:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+/blog/{slug}
+```
 
-## Deploy on Vercel
+3. The dynamic page receives `params.slug` (from Next.js). Example matching code:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```ts
+const blogSlug = params.slug; // string
+const post = data.find((b: any) => b.slug.trim() === blogSlug.trim());
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. If `post` is not found, return a friendly "Article not found" UI.
+
+> Note: The DEV.to API also supports fetching a single article by `username` + `slug` at `/api/articles/{username}/{slug}`. If you know the author username, consider that endpoint for efficiency.
+
+---
+
+## ✅ Example: Dynamic Page (simplified)
+
+```ts
+export default async function Page({ params }: { params: { slug: string } }) {
+  const blogSlug = params.slug;
+  const res = await fetch('https://dev.to/api/articles');
+  const data = await res.json();
+  const post = data.find((b: any) => b.slug.trim() === blogSlug.trim());
+
+  if (!post) return <div>Article not found</div>;
+
+  return (
+    <article>
+      <h1>{post.title}</h1>
+      <img src={post.cover_image || '/placeholder.png'} alt={post.title} />
+      <div dangerouslySetInnerHTML={{ __html: post.body_html }} />
+    </article>
+  );
+}
+```
+
+---
+
+## 🔮 Future Improvements
+
+* Add **pagination** for the blog list.
+* Add **search** and **tag/category** filters.
+* Cache API responses (ISR / SWR) to reduce requests.
+* Add **author** pages and per-author fetching using `/api/articles/{username}`.
+* Add **dark mode**, accessibility improvements, and tests.
+
+---
+
+## 📸 Screenshots
+
+*Add screenshots of the blog list and article page here. Use the `public/` folder and reference images in the README.*
+
+---
+
+## 👨‍💻 Author
+
+**Yashwant Kumar Nishad** — Frontend Developer (React / Next.js)
+
+If this project helped you, please ⭐ star the repository!
+
+---
+
+## 📄 License
+
+MIT © Yashwant Kumar Nishad
