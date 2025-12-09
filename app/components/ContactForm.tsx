@@ -53,6 +53,7 @@ const ContactForm = () => {
               value={form.name}
               onChange={handleChange}
               name='name'
+              required
             />
           </div>
 
@@ -65,6 +66,7 @@ const ContactForm = () => {
               value={form.email}
               onChange={handleChange}
               name='email'
+              required
             />
           </div>
 
@@ -76,12 +78,13 @@ const ContactForm = () => {
               value={form.message}
               onChange={handleChange}
               name='message'
+              required
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Send Message
           </button>

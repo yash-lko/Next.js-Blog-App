@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import WhatWeOffer from "./components/WhatWeOffer";
+import CTASection from "./components/CtaSection";
 
 const Page = () => {
   return (
@@ -73,7 +75,7 @@ const Page = () => {
                 <div className="p-4">
                   <h3 className="font-semibold text-lg mb-2">{post.title}</h3>
                   <p className="text-gray-600 text-sm mb-3">{post.desc}</p>
-                  <Link href="/blog" className="text-blue-600 font-medium inline-block">
+                  <Link href="/blog" className="text-blue-600  font-medium inline-block">
                     Read More →
                   </Link>
                 </div>
@@ -85,56 +87,9 @@ const Page = () => {
       </section>
 
 
-      {/* FEATURES SECTION */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12">What We Offer</h2>
+    <WhatWeOffer/>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            {[
-              {
-                title: "Tech Guides",
-                desc: "Simple tutorials to help you understand technology better.",
-              },
-              {
-                title: "Latest Trends",
-                desc: "Stay updated with what's new in tech around the world.",
-              },
-              {
-                title: "Tech Solutions",
-                desc: "Troubleshooting tips, app guides & quick digital fixes.",
-              },
-            ].map((item, i) => (
-              <div 
-                key={i}
-                className="p-8 bg-white rounded-xl shadow hover:shadow-xl transition border-t-4 border-blue-600"
-              >
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
-              </div>
-            ))}
-
-          </div>
-        </div>
-      </section>
-
-
-      {/* CALL TO ACTION */}
-      <section className="py-16 px-6 bg-pink-300 text-black">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Want to Learn Something New?</h2>
-          <p className="text-lg opacity-90 mb-6">
-            Explore our detailed tutorials, app guides, and tech tips.
-          </p>
-          <Link
-            href="/blog"
-            className="bg-white text-blue-700 px-6 py-3 rounded-xl font-semibold shadow hover:shadow-lg transition"
-          >
-            Start Reading →
-          </Link>
-        </div>
-      </section>
+<CTASection/>
 
     </div>
   );

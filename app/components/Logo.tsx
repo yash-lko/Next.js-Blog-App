@@ -9,7 +9,7 @@ const Logo = () => {
         width={110}
         height={100}
         alt="Logo"
-        style={{position:'absolute', top:'0.4vw'}}
+        style={{position:'absolute', top:'0.vw'}}
       />
     </div>
   )

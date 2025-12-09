@@ -6,22 +6,22 @@ const services = [
   {
     title: "Web Development",
     desc: "High-performance websites built using modern frameworks.",
-    icon: <Code className="w-10 h-10 text-pink-600" />,
+    icon: <Code className="w-10 h-10  text-[#8433fb]"/>,
   },
   {
     title: "UI/UX Design",
     desc: "Clean, user-focused designs that make products easy to use.",
-    icon: <Monitor className="w-10 h-10 text-pink-600" />,
+    icon: <Monitor className="w-10 h-10  text-[#8433fb]" />,
   },
   {
     title: "App Development",
     desc: "Cross-platform mobile apps for Android & iOS.",
-    icon: <Phone className="w-10 h-10 text-pink-600" />,
+    icon: <Phone className="w-10 h-10  text-[#8433fb]"/>,
   },
   {
     title: "Maintenance & Support",
     desc: "Continuous monitoring, updates, and performance optimization.",
-    icon: <Settings className="w-10 h-10 text-pink-600" />,
+    icon: <Settings className="w-10 h-10  text-[#8433fb]"/>,
   },
 ];
 
