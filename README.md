@@ -14,7 +14,7 @@ This repo demonstrates server-side fetching, dynamic routing, and rendering arti
 * Optimized images via Next.js `next/image`.
 * Server-side fetching for fast, SEO-friendly pages.
 * Graceful error handling for missing or invalid slugs.
-* Responsive layout built with Tailwind CSS (or your CSS of choice).
+* Responsive layout built with Tailwind CSS.
 
 ---
 
