@@ -112,28 +112,6 @@ const post = data.find((b: any) => b.slug.trim() === blogSlug.trim());
 
 ---
 
-## ✅ Example: Dynamic Page (simplified)
-
-```ts
-export default async function Page({ params }: { params: { slug: string } }) {
-  const blogSlug = params.slug;
-  const res = await fetch('https://dev.to/api/articles');
-  const data = await res.json();
-  const post = data.find((b: any) => b.slug.trim() === blogSlug.trim());
-
-  if (!post) return <div>Article not found</div>;
-
-  return (
-    <article>
-      <h1>{post.title}</h1>
-      <img src={post.cover_image || '/placeholder.png'} alt={post.title} />
-      <div dangerouslySetInnerHTML={{ __html: post.body_html }} />
-    </article>
-  );
-}
-```
-
----
 
 ## 🔮 Future Improvements
 
