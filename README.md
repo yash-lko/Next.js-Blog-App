@@ -145,11 +145,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
 ---
 
-## 📸 Screenshots
-
-*Add screenshots of the blog list and article page here. Use the `public/` folder and reference images in the README.*
-
----
 
 ## 👨‍💻 Author
 
