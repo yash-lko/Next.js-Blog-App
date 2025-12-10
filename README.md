@@ -2,7 +2,7 @@
 <img width="1419" height="681" alt="image" src="https://github.com/user-attachments/assets/eb064bab-3c81-4d6b-b2b0-dc2abf86d8b4" />
 
 
-# 📘 Next.js Blog App (DEV.to API)
+# 📘 Next.js Blog Website 
 
 A simple, fast, and production-ready **Next.js (App Router)** blog application that fetches articles from the **DEV.to public API**, lists them on a blog listing page, and displays full article details using SEO-friendly **dynamic slug** routes.
 
